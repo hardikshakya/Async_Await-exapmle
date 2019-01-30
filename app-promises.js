@@ -4,7 +4,7 @@ const users = [{
     schoolId: 101
 }, {
     id: 2,
-    name: 'B',
+    name: 'Bh',
     schoolId: 261
 }];
 
@@ -29,7 +29,7 @@ const getUser = (id) => {
         });
         if(user){
             resolve(user);
-        } else{
+        } else {
             reject(`Unable to find user with id of ${id}.`);
         }
     });
@@ -52,10 +52,35 @@ const getStatus = (userId) => {
         if(grades.length > 0) {
             average = grades.map((grade) => grade.grade).reduce((a,b) => a + b) / grades.length;
         }
-
-        return `${user.name} has a $ ${average}% in the class.`;
+        return `${user.name} has a ${average}% in the class.`;
     });
 };
+
+//async await
+
+const  getStatusAlt = async (userId) => {
+    // throw new Error('This is an error');
+    // return 'Hardikkkkk';
+    const user = await getUser(userId);
+    const grades = await getGrades(user.schoolId);
+
+    let average = 0;
+
+    if(grades.length > 0) {
+        average = grades.map((grade) => grade.grade).reduce((a,b) => a + b) / grades.length;
+    }
+    return `${user.name} has a ${average}% in the class.`;
+
+    // console.log(user,grades);
+    
+};
+// console.log(getStatusAlt());
+getStatusAlt(2).then((status) => {
+    console.log(status);    
+}).catch(() => {
+    console.log(e);
+    
+});
 
 // getUser(31).then((user) => {
 //     console.log(user);
@@ -71,9 +96,8 @@ const getStatus = (userId) => {
 //     console.log(e);    
 // });
 
-getStatus(1).then((status) => {
-    console.log(status);
-    
-}).catch((e) => {
-    console.log(e);    
-});
+// getStatus(1).then((status) => {
+//     console.log(status);    
+// }).catch((e) => {
+//     console.log(e);    
+// });
