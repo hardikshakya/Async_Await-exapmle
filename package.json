@@ -1,0 +1,22 @@
+{
+  "name": "async-await",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app-promises.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardikshakya/Async_Await-exapmle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hardikshakya/Async_Await-exapmle/issues"
+  },
+  "homepage": "https://github.com/hardikshakya/Async_Await-exapmle#readme",
+  "dependencies": {
+    "axios": "^0.16.1"
+  }
+}
